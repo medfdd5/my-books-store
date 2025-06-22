@@ -9,13 +9,23 @@
       direction: rtl;
       background-color: #f5f7fa;
       text-align: center;
-      margin: 0;
       padding: 20px;
     }
     h1 {
       color: #222;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       font-weight: 700;
+    }
+    .controls {
+      margin: 20px 0;
+    }
+    input[type="text"], select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin: 10px;
+      width: 250px;
+      max-width: 90%;
     }
     .books-container {
       display: flex;
@@ -29,14 +39,13 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 15px;
       width: 280px;
-      transition: transform 0.2s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: transform 0.2s ease;
     }
     .book:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .book img {
       width: 180px;
@@ -44,55 +53,33 @@
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .book h2 {
       font-size: 1.3em;
-      margin: 0 0 10px 0;
-      color: #333;
-      font-weight: 600;
-      min-height: 48px;
+      margin-bottom: 10px;
     }
     .book p.description {
       font-size: 0.9em;
       color: #555;
-      flex-grow: 1;
       margin-bottom: 15px;
-      min-height: 60px;
     }
     .book p.price {
-      font-weight: 700;
-      margin-bottom: 15px;
+      font-weight: bold;
       color: #4CAF50;
-      font-size: 1.1em;
+      margin-bottom: 10px;
     }
     .book button {
       background-color: #4CAF50;
-      border: none;
       color: white;
-      padding: 12px 20px;
+      padding: 10px 20px;
       border-radius: 8px;
+      border: none;
       cursor: pointer;
-      font-weight: 600;
-      font-size: 1em;
+      font-weight: bold;
       width: 100%;
-      transition: background-color 0.3s ease;
     }
     .book button:hover {
       background-color: #45a049;
-    }
-    @media (max-width: 600px) {
-      .books-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .book {
-        width: 90%;
-      }
-      .book img {
-        width: 60%;
-        height: auto;
-      }
     }
   </style>
 </head>
@@ -100,49 +87,60 @@
 
   <h1>📚 متجر الكتب الرقمية</h1>
 
-  <div class="books-container">
+  <!-- أدوات البحث والتصنيف -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب..." onkeyup="filterBooks()" />
+    <select id="categorySelect" onchange="filterBooks()">
+      <option value="all">📂 كل التصنيفات</option>
+      <option value="تحفيزي">تحفيزي</option>
+      <option value="تطوير الذات">تطوير الذات</option>
+      <option value="تنمية بشرية">تنمية بشرية</option>
+    </select>
+  </div>
 
-    <!-- كتاب Can't Hurt Me -->
-    <div class="book">
-      <img src="https://pin.it/2EsFmO2UU" alt="Can't Hurt Me" />
+  <div class="books-container" id="booksContainer">
+
+    <!-- كتاب 1 -->
+    <div class="book" data-title="can't hurt me" data-category="تحفيزي">
+      <img src="c:\Users\Mohamed Fadil\Downloads\414d8c5f-abfa-4f7e-82bb-d19d8174a55f.jpg" alt="Can't Hurt Me" />
       <h2>Can't Hurt Me</h2>
-      <p class="description">كتاب تحفيزي مذهل من تأليف David Goggins، يشارك فيه كيف تغلب على المعاناة وأصبح من أقوى الرجال بالعالم. يعلمك كيف تقهر الخوف وتتخطى حدودك.</p>
+      <p class="description">كتاب تحفيزي من تأليف David Goggins يساعدك على تجاوز حدودك.</p>
       <p class="price">9 دولار</p>
       <button onclick="buyBook('https://drive.google.com/uc?export=download&id=10cJlvcaYew9HHtYpbTNqeHYY_RqnE0Nt')">تحميل الكتاب</button>
     </div>
 
-    <!-- كتاب قوة الآن -->
-    <div class="book">
-      <img src="https://www.pinterest.com/pin/268667934007961316/" alt="قوة الآن" />
+    <!-- كتاب 2 -->
+    <div class="book" data-title="قوة الآن" data-category="تطوير الذات">
+      <img src="c:\Users\Mohamed Fadil\Downloads\قوة الان.jpg" alt="قوة الآن" />
       <h2>قوة الآن</h2>
-      <p class="description">كتاب يساعدك على عيش اللحظة والتخلص من القلق والتفكير الزائد.</p>
+      <p class="description">كيف تعيش اللحظة وتتخلص من القلق والتفكير الزائد.</p>
       <p class="price">5 دولار</p>
       <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1VckD2hc1UvEmLZ8MS1ez7jrUQ6a6FqO0')">تحميل الكتاب</button>
     </div>
 
-    <!-- كتاب فن اللامبالاة -->
-    <div class="book">
-      <img src="https://www.pinterest.com/pin/631489178988267466/" alt="فن اللامبالاة" />
+    <!-- كتاب 3 -->
+    <div class="book" data-title="فن اللامبالاة" data-category="تطوير الذات">
+      <img src="c:\Users\Mohamed Fadil\Downloads\c78418ca-9878-40d5-9c52-09aa215eb96e.jpg" alt="فن اللامبالاة" />
       <h2>فن اللامبالاة</h2>
-      <p class="description">كتاب تطوير ذاتي بأسلوب بسيط وصادم، يساعدك على التركيز على الأهم.</p>
+      <p class="description">أسلوب جديد في التعامل مع الحياة والتركيز على الأهم.</p>
       <p class="price">7 دولار</p>
       <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1flAcw5ufW9CqcxgT6cLyxHAirauMglGN')">تحميل الكتاب</button>
     </div>
 
-    <!-- كتاب نظرية الفستق -->
-    <div class="book">
-      <img src="https://www.pinterest.com/pin/21181060742384647/" alt="نظرية الفستق" />
+    <!-- كتاب 4 -->
+    <div class="book" data-title="نظرية الفستق" data-category="تنمية بشرية">
+      <img src="c:\Users\Mohamed Fadil\Downloads\00aa7949-ab4b-46b7-b97c-4ff10c3fde5b.jpg" alt="نظرية الفستق" />
       <h2>نظرية الفستق</h2>
-      <p class="description">مجموعة مقالات في التنمية البشرية والوعي الفكري بأسلوب ممتع وسلس.</p>
+      <p class="description">مقالات في التنمية البشرية والتفكير المنطقي.</p>
       <p class="price">6 دولار</p>
       <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1p7iTFK-hwcTgq35I4fEJzpFjLYnDRVZ8')">تحميل الكتاب</button>
     </div>
 
-    <!-- كتاب العادات الذرية -->
-    <div class="book">
-      <img src="https://www.pinterest.com/pin/410531322303496432/" alt="العادات الذرية" />
+    <!-- كتاب 5 -->
+    <div class="book" data-title="العادات الذرية" data-category="تطوير الذات">
+      <img src="c:\Users\Mohamed Fadil\Downloads\9f60b707-52ca-4ad0-90f4-b52b4204e68a.jpg" alt="العادات الذرية" />
       <h2>العادات الذرية</h2>
-      <p class="description">كتاب يعلمك كيف تبني عادات صغيرة تؤدي إلى نتائج كبيرة.</p>
+      <p class="description">كيف تصنع عادات صغيرة تُحدث فرقاً كبيراً في حياتك.</p>
       <p class="price">10 دولار</p>
       <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1wLMbjdIKb1I6mQTb9eVGrZr-ZnYu8G4d')">تحميل الكتاب</button>
     </div>
@@ -152,6 +150,26 @@
   <script>
     function buyBook(link) {
       window.open(link, "_blank");
+    }
+
+    function filterBooks() {
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const category = document.getElementById("categorySelect").value;
+      const books = document.querySelectorAll(".book");
+
+      books.forEach(book => {
+        const title = book.getAttribute("data-title").toLowerCase();
+        const cat = book.getAttribute("data-category");
+
+        const matchesSearch = title.includes(search);
+        const matchesCategory = (category === "all" || category === cat);
+
+        if (matchesSearch && matchesCategory) {
+          book.style.display = "flex";
+        } else {
+          book.style.display = "none";
+        }
+      });
     }
   </script>
 

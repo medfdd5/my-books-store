@@ -1,177 +1,145 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>متجر الكتب الرقمية</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      direction: rtl;
-      background-color: #f5f7fa;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header, footer {
+      background: linear-gradient(to right, gold, silver);
+      color: #000;
       text-align: center;
       padding: 20px;
     }
-    h1 {
-      color: #222;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    .controls {
-      margin: 20px 0;
-    }
-    input[type="text"], select {
+    nav {
+      background-color: #333;
+      text-align: center;
       padding: 10px;
+    }
+    nav a {
+      color: gold;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+    .product {
+      border: 1px solid silver;
       border-radius: 8px;
-      border: 1px solid #ccc;
-      margin: 10px;
+      margin: 15px;
+      padding: 20px;
+      display: inline-block;
       width: 250px;
-      max-width: 90%;
+      background: white;
     }
-    .books-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-    .book {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 15px;
-      width: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.2s ease;
-    }
-    .book:hover {
-      transform: translateY(-8px);
-    }
-    .book img {
-      width: 180px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .book h2 {
-      font-size: 1.3em;
-      margin-bottom: 10px;
-    }
-    .book p.description {
-      font-size: 0.9em;
-      color: #555;
-      margin-bottom: 15px;
-    }
-    .book p.price {
-      font-weight: bold;
-      color: #4CAF50;
-      margin-bottom: 10px;
-    }
-    .book button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
+    .product img {
       width: 100%;
+      border-radius: 8px;
     }
-    .book button:hover {
-      background-color: #45a049;
+    .product h3 {
+      color: #444;
+    }
+    .product .price {
+      font-weight: bold;
+      color: goldenrod;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: gold;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Fitness Store</h1>
+    <p>Train Hard, Shop Smart</p>
+  </header>
 
-  <h1>📚 متجر الكتب الرقمية</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- أدوات البحث والتصنيف -->
-  <div class="controls">
-    <input type="text" id="searchInput" placeholder="🔍 ابحث عن كتاب..." onkeyup="filterBooks()" />
-    <select id="categorySelect" onchange="filterBooks()">
-      <option value="all">📂 كل التصنيفات</option>
-      <option value="تحفيزي">تحفيزي</option>
-      <option value="تطوير الذات">تطوير الذات</option>
-      <option value="تنمية بشرية">تنمية بشرية</option>
-    </select>
-  </div>
+  <section id="home">
+    <h2>Welcome to Fitness Store</h2>
+    <p>Your destination for premium fitness gear in gold and silver style.</p>
+  </section>
 
-  <div class="books-container" id="booksContainer">
-
-    <!-- كتاب 1 -->
-    <div class="book" data-title="can't hurt me" data-category="تحفيزي">
-      <img src="c:\Users\Mohamed Fadil\Downloads\414d8c5f-abfa-4f7e-82bb-d19d8174a55f.jpg" alt="Can't Hurt Me" />
-      <h2>Can't Hurt Me</h2>
-      <p class="description">كتاب تحفيزي من تأليف David Goggins يساعدك على تجاوز حدودك.</p>
-      <p class="price">9 دولار</p>
-      <button onclick="buyBook('https://drive.google.com/uc?export=download&id=10cJlvcaYew9HHtYpbTNqeHYY_RqnE0Nt')">تحميل الكتاب</button>
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <img src="https://www.corehomefitness.com/cdn/shop/products/adjustable-dumbbells_1000x.jpg" alt="Adjustable Dumbbells">
+      <h3>Adjustable Dumbbell Set</h3>
+      <p>Smart adjustable dumbbells from 5 to 50 lbs. Compact and durable.</p>
+      <p class="price">$129.99</p>
     </div>
-
-    <!-- كتاب 2 -->
-    <div class="book" data-title="قوة الآن" data-category="تطوير الذات">
-      <img src="c:\Users\Mohamed Fadil\Downloads\قوة الان.jpg" alt="قوة الآن" />
-      <h2>قوة الآن</h2>
-      <p class="description">كيف تعيش اللحظة وتتخلص من القلق والتفكير الزائد.</p>
-      <p class="price">5 دولار</p>
-      <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1VckD2hc1UvEmLZ8MS1ez7jrUQ6a6FqO0')">تحميل الكتاب</button>
+    <div class="product">
+      <img src="https://banditfitness.com/cdn/shop/products/yoga-mat_1000x.jpg" alt="Yoga Mat">
+      <h3>Yoga Mat</h3>
+      <p>Non-slip, cushioned yoga mat perfect for floor workouts.</p>
+      <p class="price">$29.99</p>
     </div>
-
-    <!-- كتاب 3 -->
-    <div class="book" data-title="فن اللامبالاة" data-category="تطوير الذات">
-      <img src="c:\Users\Mohamed Fadil\Downloads\c78418ca-9878-40d5-9c52-09aa215eb96e.jpg" alt="فن اللامبالاة" />
-      <h2>فن اللامبالاة</h2>
-      <p class="description">أسلوب جديد في التعامل مع الحياة والتركيز على الأهم.</p>
-      <p class="price">7 دولار</p>
-      <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1flAcw5ufW9CqcxgT6cLyxHAirauMglGN')">تحميل الكتاب</button>
+    <div class="product">
+      <img src="https://globalfitness.com/cdn/shop/products/resistance-bands_1000x.jpg" alt="Resistance Bands">
+      <h3>Resistance Bands</h3>
+      <p>Set of 5 bands for various resistance levels. Ideal for strength training.</p>
+      <p class="price">$19.99</p>
     </div>
+  </section>
 
-    <!-- كتاب 4 -->
-    <div class="book" data-title="نظرية الفستق" data-category="تنمية بشرية">
-      <img src="c:\Users\Mohamed Fadil\Downloads\00aa7949-ab4b-46b7-b97c-4ff10c3fde5b.jpg" alt="نظرية الفستق" />
-      <h2>نظرية الفستق</h2>
-      <p class="description">مقالات في التنمية البشرية والتفكير المنطقي.</p>
-      <p class="price">6 دولار</p>
-      <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1p7iTFK-hwcTgq35I4fEJzpFjLYnDRVZ8')">تحميل الكتاب</button>
-    </div>
+  <section id="about">
+    <h2>About Fitness Store</h2>
+    <p>At Fitness Store, we’re committed to bringing you premium fitness gear with a classic, refined style. We believe in products that not only perform—but look great too.</p>
+    <h3>Why Choose Us?</h3>
+    <ul style="text-align: left; max-width: 600px; margin: auto;">
+      <li>🏆 High-quality equipment trusted by professionals</li>
+      <li>💬 Exceptional customer service</li>
+      <li>🎖️ Classic gold and silver design aesthetics</li>
+    </ul>
+  </section>
 
-    <!-- كتاب 5 -->
-    <div class="book" data-title="العادات الذرية" data-category="تطوير الذات">
-      <img src="c:\Users\Mohamed Fadil\Downloads\9f60b707-52ca-4ad0-90f4-b52b4204e68a.jpg" alt="العادات الذرية" />
-      <h2>العادات الذرية</h2>
-      <p class="description">كيف تصنع عادات صغيرة تُحدث فرقاً كبيراً في حياتك.</p>
-      <p class="price">10 دولار</p>
-      <button onclick="buyBook('https://drive.google.com/uc?export=download&id=1wLMbjdIKb1I6mQTb9eVGrZr-ZnYu8G4d')">تحميل الكتاب</button>
-    </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need help choosing gear? Send us a message!</p>
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-  </div>
-
-  <script>
-    function buyBook(link) {
-      window.open(link, "_blank");
-    }
-
-    function filterBooks() {
-      const search = document.getElementById("searchInput").value.toLowerCase();
-      const category = document.getElementById("categorySelect").value;
-      const books = document.querySelectorAll(".book");
-
-      books.forEach(book => {
-        const title = book.getAttribute("data-title").toLowerCase();
-        const cat = book.getAttribute("data-category");
-
-        const matchesSearch = title.includes(search);
-        const matchesCategory = (category === "all" || category === cat);
-
-        if (matchesSearch && matchesCategory) {
-          book.style.display = "flex";
-        } else {
-          book.style.display = "none";
-        }
-      });
-    }
-  </script>
-
+  <footer>
+    &copy; 2025 Fitness Store
+  </footer>
 </body>
 </html>

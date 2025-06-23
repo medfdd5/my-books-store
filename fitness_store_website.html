@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header, footer {
+      background: linear-gradient(to right, gold, silver);
+      color: #000;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #333;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: gold;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+    .product {
+      border: 1px solid silver;
+      border-radius: 8px;
+      margin: 15px;
+      padding: 20px;
+      display: inline-block;
+      width: 250px;
+      background: white;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product h3 {
+      color: #444;
+    }
+    .product .price {
+      font-weight: bold;
+      color: goldenrod;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: gold;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fitness Store</h1>
+    <p>Train Hard, Shop Smart</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Fitness Store</h2>
+    <p>Your destination for premium fitness gear in gold and silver style.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product">
+      <img src="https://www.corehomefitness.com/cdn/shop/products/adjustable-dumbbells_1000x.jpg" alt="Adjustable Dumbbells">
+      <h3>Adjustable Dumbbell Set</h3>
+      <p>Smart adjustable dumbbells from 5 to 50 lbs. Compact and durable.</p>
+      <p class="price">$129.99</p>
+    </div>
+    <div class="product">
+      <img src="https://banditfitness.com/cdn/shop/products/yoga-mat_1000x.jpg" alt="Yoga Mat">
+      <h3>Yoga Mat</h3>
+      <p>Non-slip, cushioned yoga mat perfect for floor workouts.</p>
+      <p class="price">$29.99</p>
+    </div>
+    <div class="product">
+      <img src="https://globalfitness.com/cdn/shop/products/resistance-bands_1000x.jpg" alt="Resistance Bands">
+      <h3>Resistance Bands</h3>
+      <p>Set of 5 bands for various resistance levels. Ideal for strength training.</p>
+      <p class="price">$19.99</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Fitness Store</h2>
+    <p>At Fitness Store, we’re committed to bringing you premium fitness gear with a classic, refined style. We believe in products that not only perform—but look great too.</p>
+    <h3>Why Choose Us?</h3>
+    <ul style="text-align: left; max-width: 600px; margin: auto;">
+      <li>🏆 High-quality equipment trusted by professionals</li>
+      <li>💬 Exceptional customer service</li>
+      <li>🎖️ Classic gold and silver design aesthetics</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need help choosing gear? Send us a message!</p>
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Fitness Store
+  </footer>
+</body>
+</html>
